@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lamp Power Calculator</title>
+ <style>
+        body {
+            background : url("{% static 'mathexp55.png' %}");
+            background-size: cover;
+            background-repeat: top left;
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        label {
+            display: inline-block;
+            width: 150px;
+        }
+        input {
+            margin-bottom: 10px;
+        }
+        button {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Power of Lamp Filament</h2>
+
+    <label>Intensity (I): </label>
+    <input type="number" id="intensity"><br><br>
+
+    <label>Resistance (R): </label>
+    <input type="number" id="resistance"><br><br>
+
+    <button onclick="calculatePower()">Calculate Power</button>
+
+    <h3 id="result"></h3>
+
+    <script>
+        function calculatePower() {
+            let I = Number(document.getElementById("intensity").value);
+            let R = Number(document.getElementById("resistance").value);
+
+            let P = I * I * R; 
+
+            document.getElementById("result").innerHTML = "Power = " + P + " watts";
+        }
+    </script>
+
+</body>
+</html>
